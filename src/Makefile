@@ -77,7 +77,7 @@ endif
 optimize = yes
 debug = no
 sanitize = no
-#bits = 64
+bits = 64
 prefetch = no
 popcnt = no
 sse = no
@@ -85,8 +85,11 @@ pext = no
 
 
 ### 2.1.1 Simple Defaults Autodetection
-arch = $(shell uname -m)
-bits = $(shell getconf LONG_BIT)
+ifeq ($(ARCH),autodetect)
+	arch = $(shell uname -m)
+	bits = $(shell getconf LONG_BIT)
+endif
+
 
 ### 2.2 Architecture specific
 ifeq ($(ARCH),general-32)
