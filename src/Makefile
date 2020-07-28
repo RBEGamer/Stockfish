@@ -83,6 +83,11 @@ popcnt = no
 sse = no
 pext = no
 
+
+### 2.1.1 Simple Defaults Autodetection
+arch = $(shell uname -m)
+bits = $(shell getconf LONG_BIT)
+
 ### 2.2 Architecture specific
 ifeq ($(ARCH),general-32)
 	arch = any
